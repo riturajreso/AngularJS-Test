@@ -2,14 +2,23 @@
 <html>
 <head>
 	<title>Angular Test</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> -->
+	<script src="script/angularjs1.7.2.js"></script>
 </head>
 <body>
 <div ng-app="myApp" ng-init="col='red'" ng-controller="myCtrl">
-  <label> First Name : </label><input type="text" style="background: {{col}}" name="fname" ng-model="fname">
+  <label> First Name : </label>
+  <input type="text" style="background: {{col}}" name="fname" ng-model="fname">
+  
   <p>Enter Value - {{ fname }}</p>
   <label> Last Name : </label><input type="text" name="lname" ng-model="lname">	
   <p>Enter Value - <span ng-bind="lname"></span></p>
+
+  <label> Checkbox : </label><input type="checkbox" name="c_box" ng-model="c_box">	
+  <button ng-disabled="c_box">Click Me</button>
+
+  <label> Show Checkbox : </label><input type="checkbox" name="show_box" ng-model="show_box">	
+  <button ng-show="show_box" ng-click="c_box = !c_box">Click Me</button>
 </div>
 </body>
 <script>
@@ -19,5 +28,7 @@ app.controller("myCtrl", function($scope) {
     $scope.fname = "John";
     $scope.lname = "Doe";
 });
+
+
 </script>
 </html>
